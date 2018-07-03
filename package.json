@@ -1,0 +1,15 @@
+{
+  "name": "tweetbot",
+  "version": "1.0.0",
+  "description": "WC tweets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Omar",
+  "license": "ISC",
+  "dependencies": {
+    "newsapi": "^2.2.2",
+    "twit": "^2.2.11"
+  }
+}
