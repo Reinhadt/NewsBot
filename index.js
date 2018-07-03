@@ -12,19 +12,31 @@ const T = new Twit({
 })
 
 function tuiteo(articulo){
+
     T.post(
         'statuses/update',
-        {status: `${articulo.author}: ${articulo.title} ${articulo.url}`},
+        {status: `${articulo.source.name}: ${articulo.title} ${articulo.url}`},
         (err, data, response) => {
             console.log(err, data, response);
         }
     )
 }
 
+function getNotices(){
+    newsapi.v2.topHeadlines({
+        country: 'mx'
+    }).then(response => {
+        tuiteo(response.articles[0])
+        for(i = 1; i<response.articles.length; i++){
+            (function(i){
+                console.log("articulo1:" + response.articles[i])
+                setTimeout(() => {
+                    tuiteo(response.articles[i])
+                }, (240*1000)*i);
+            })(i);
+        }
+    })
+}
 
-newsapi.v2.topHeadlines({
-    country: 'mx'
-}).then(response => {
-    tuiteo(response.articles[0])
-})
-
+getNotices();
+setInterval(getNotices, 14400*1000)
