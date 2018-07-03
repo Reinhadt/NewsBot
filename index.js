@@ -1,14 +1,14 @@
 const Twit = require('twit')
 const NewsAPI = require('newsapi')
+require('dotenv').config()
 
-const newsapi = new NewsAPI('686325814b5d45088a0ec8963f75d032')
+const newsapi = new NewsAPI(process.env.NEWS_TOKEN)
 
 const T = new Twit({
-    consumer_key: 'mb29KimXTgpTgzcNaNmEdVAYy',
-    consumer_secret: 'yy5D1BEnURXeZaaXSZm1FNq7MRgOPUmJraob1QFkUmeluiPrwF',
-    access_token: '938117137549291520-sM2laBsjQ1uibw9jkxN7CzfLJMmk8cW',
-    access_token_secret: 'wWrdrnyEoLAq1gw1BNGGcXH5ABAey2IKX5CWCUAYwHYtY',
-    timeout_ms: 60*1000
+    consumer_key: process.env.CONSUMER_KEY,
+    consumer_secret: process.env.CONSUMER_SECRET,
+    access_token: process.env.ACCESS_TOKEN,
+    access_token_secret: process.env.ACCESS_TOKEN_SECRET
 })
 
 function tuiteo(articulo){
