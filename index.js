@@ -1,3 +1,6 @@
+const http = require('http')
+const handle = (req, res) -> res.end "hit"
+
 const Twit = require('twit')
 const NewsAPI = require('newsapi')
 require('dotenv').config()
@@ -40,3 +43,7 @@ function getNotices(){
 
 getNotices();
 setInterval(getNotices, 14400*1000)
+
+const server = http.createServer handle
+
+server.listen process.env.PORT || 5000
