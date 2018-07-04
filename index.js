@@ -46,4 +46,4 @@ setInterval(getNotices, 14400*1000)
 
 const server = http.createServer(handle)
 
-server.listen process.env.PORT || 5000
+server.listen(5000)
