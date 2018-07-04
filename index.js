@@ -32,7 +32,7 @@ function getNotices(){
                 console.log("articulo1:" + response.articles[i])
                 setTimeout(() => {
                     tuiteo(response.articles[i])
-                }, (240*1000)*i);
+                }, (720*1000)*i);
             })(i);
         }
     })
